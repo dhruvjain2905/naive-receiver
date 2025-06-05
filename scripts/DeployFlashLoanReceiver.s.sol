@@ -7,7 +7,7 @@ import {FlashLoanReceiver} from "src/FlashLoanReceiver.sol"; // Adjust path to a
 contract DeployFlashLoanReceiver is Script {
     function run() external {
         // Replace with the actual deployed NaiveReceiverPool address
-        address pool = 0xYourNaiveReceiverPoolAddressHere;
+        address pool = 0x1234567890123456789012345678901234567890;
 
         vm.startBroadcast();
 
