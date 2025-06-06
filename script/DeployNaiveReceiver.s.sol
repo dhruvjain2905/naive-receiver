@@ -24,7 +24,7 @@ contract DeployNaiveReceiver is Script {
         FlashLoanReceiver receiver = new FlashLoanReceiver(address(pool));
 
         console.log("BasicForwarder:", address(forwarder));
-        console.log("WETH:", address(weth));
+        #console.log("WETH:", address(weth));
         console.log("NaiveReceiverPool:", address(pool));
         console.log("FlashLoanReceiver:", address(receiver));
 
