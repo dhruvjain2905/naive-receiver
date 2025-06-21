@@ -9,7 +9,7 @@ import {Multicall} from "./Multicall.sol";
 import {WETH} from "solmate/tokens/WETH.sol";
 
 contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
-    uint256 private constant FIXED_FEE = 1e18; // not the cheapest flash loan
+    uint256 private constant FIXED_FEE = 0.00001 ether; // Scaled down from 1 WETH to 0.00001 WETH
     bytes32 private constant CALLBACK_SUCCESS = keccak256("ERC3156FlashBorrower.onFlashLoan");
 
     WETH public immutable weth;
