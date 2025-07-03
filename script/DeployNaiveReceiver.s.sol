@@ -58,7 +58,7 @@ contract DeployNaiveReceiver is Script {
         // 1. Deploy all contracts
         BasicForwarder forwarder = new BasicForwarder();
         WETH weth = new WETH();
-        address feeReceiver = 0xB3D455378ee5cb840e5bc9f399d399f2601c6d48;
+        address feeReceiver = add your metamask address here
 
         NaiveReceiverPool pool = new NaiveReceiverPool{value: POOL_WETH_AMOUNT}(
             address(forwarder),
