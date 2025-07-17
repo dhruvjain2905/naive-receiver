@@ -42,7 +42,7 @@ import {WETH} from "lib/solmate/src/tokens/WETH.sol";
 
 contract DeployNaiveReceiver is Script {
     // SET THIS TO YOUR WALLET ADDRESS
-    address constant AGENT_ADDR = 0x4C1f023A2A914d109bEa600aB518f3078466e279; // <-- replace with your address
+    address constant AGENT_ADDR = 0x4C1f023A2A914d109bEa600aB518f3078466e279; 
 
     // Amounts scaled down proportionally (1000x smaller)
     uint256 constant POOL_WETH_AMOUNT = 0.01 ether; // Scaled from 1000 WETH to 0.01 WETH
@@ -58,7 +58,7 @@ contract DeployNaiveReceiver is Script {
         // 1. Deploy all contracts
         BasicForwarder forwarder = new BasicForwarder();
         WETH weth = new WETH();
-        address feeReceiver = add your metamask address here
+        address feeReceiver = 0xB3D455378ee5cb840e5bc9f399d399f2601c6d48;
 
         NaiveReceiverPool pool = new NaiveReceiverPool{value: POOL_WETH_AMOUNT}(
             address(forwarder),
