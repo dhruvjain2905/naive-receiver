@@ -50,15 +50,19 @@ contract DeployNaiveReceiver is Script {
 
     function run() external {
         // Load private key from environment variable
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        //uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         
         // Start broadcasting transactions from your deployer key
-        vm.startBroadcast(deployerPrivateKey);
+        //vm.startBroadcast(deployerPrivateKey);
+
+        vm.startBroadcast();
 
         // 1. Deploy all contracts
         BasicForwarder forwarder = new BasicForwarder();
         WETH weth = new WETH();
-        address feeReceiver = 0xB3D455378ee5cb840e5bc9f399d399f2601c6d48;
+        address feeReceiver = msg.sender;
+        //address feeReceiver = vm.addr(deployerPrivateKey); // Use deployer as fee receiver
+        //address feeReceiver = 0xB3D455378ee5cb840e5bc9f399d399f2601c6d48;
 
         NaiveReceiverPool pool = new NaiveReceiverPool{value: POOL_WETH_AMOUNT}(
             address(forwarder),
@@ -80,6 +84,7 @@ contract DeployNaiveReceiver is Script {
 
         // 3. Log contract addresses with clear labels
         console.log("\n=== DEPLOYED CONTRACT ADDRESSES ===");
+        console.log("Deployer Address: %s", msg.sender);
         console.log("BasicForwarder: %s", address(forwarder));
         console.log("WETH: %s", address(weth));
         console.log("NaiveReceiverPool: %s", address(pool));
